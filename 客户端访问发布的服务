@@ -1,0 +1,26 @@
+1.创建客户端项目。
+根据WSDL文档来在客户端编写代码，访问发布的服务；
+但是，WSDL文档看不懂怎么办？代码该如何编写？
+——你看不懂，JDK看得懂，wsimport是JDK自带的，可以根据WSDL文档生成客户端调用代码的工具。
+无论服务器端WebService使用什么语言编写的，豆浆在客户端生成Java代码。
+所以服务器用什么语言编写的并不重要。
+wsimport.exe命令参数熟知：
+    -d:生成class文件。默认参数。
+    -s：生成Java文件
+   -p：自定义包结构
+E:\>wsimport -s . http://192.168.24.138:456/hellowrod?wsdl  
+   
+  2. 
+  创建客户端项目。
+生成客户端代码有多种方式，这里介绍jdk自带的wsimport工具。
+1，新建java Project项目，命名为ws_client。
+2.win+R输入cmd,打开dos命令，进入到ws_client项目的src目录，
+输入wsimport -keep http://localhost:8080/ws_server/weather?wsdl，点击回车，
+出现下图情况即为生成成功。
+parsing WSDL...
+
+generating code...
+
+success!
+（还可以将http://localhost:8080/ws_server/weather?wsdl生成的文档以wsdl为后缀保存到项目中，
+输入wsimport -keep wsdl文件的路径执行） 

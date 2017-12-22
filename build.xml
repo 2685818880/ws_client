@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebService" basedir="." default="webservice">
+	<property file="build.properties" />
+	
+	<path id="project-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+	   </fileset>
+    </path>
+	
+	<target name="webservice">
+	   <taskdef name="wsgen" classname="org.codehaus.xfire.gen.WsGenTask"
+	   	classpathref="project-classpath" />
+		<wsgen outputDirectory="${scr.dir}" wsdl="${wsdl.dir}" package="com.hhaip.client" overwrite="true"/>
+	</target>
+</project>
